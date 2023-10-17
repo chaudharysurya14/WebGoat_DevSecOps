@@ -12,6 +12,15 @@ pipeline {
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
+	stage ('Static analysis') {
+	steps {
+        withSonarQubeEnv('sonarqube') {
+          sh 'mvn sonar:sonar'
+        //sh 'sudo python3 Devsecops.py'
+	}
+      }
+    }
+
     }
 }
 
