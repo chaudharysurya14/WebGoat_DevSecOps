@@ -22,7 +22,7 @@ pipeline {
  //    }
 	     stage('Generate and build') {
             steps {
-                sh "mvn clean install"
+                sh "mvn compile"
             }
         }
 
