@@ -25,8 +25,14 @@ pipeline {
                 sh "mvn compile"
             }
         }
-
-
+	 stage ('Deploy to server') {
+            steps {
+           sshagent(['application_server']) {
+                sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/CDAC _Intern_Project/target/webgoat-2023.5-SNAPSHOT.jar root@65.2.191.49:/WebGoat'
+                sh 'ssh -o  StrictHostKeyChecking=no root@65.2.191.49 "nohup java -jar /WebGoat/webgoat-server-v8.2.0-SNAPSHOT.jar &"'
+              }
+           }
+    }
   }
 }
 
