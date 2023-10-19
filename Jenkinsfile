@@ -20,9 +20,14 @@ pipeline {
 	// }
  //      }
  //    }
-	     stage('Generate and build') {
+	     // stage('Generate and build') {
+      //       steps {
+      //           sh "mvn compile"
+      //       }
+      //   }
+	   stage('Generate and build') {
             steps {
-                sh "mvn compile"
+                sh "mvn clean install"
             }
         }
 
