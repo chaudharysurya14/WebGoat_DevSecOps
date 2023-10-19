@@ -28,7 +28,7 @@ pipeline {
 	 stage ('Deploy to server') {
             steps {
            sshagent(['application_server']) {
-                sh 'scp -r /var/lib/jenkins/workspace/CDAC\ _Intern_Project/target/webgoat-2023.5-SNAPSHOT.jar root@192.168.80.22:/root/WebGoat'
+                sh 'scp -r /var/lib/jenkins/workspace/CDAC\ _Intern_Project/target/webgoat-2023.5-SNAPSHOT.jar 192.168.80.22:/root/WebGoat'
                 sh 'ssh -o  StrictHostKeyChecking=no root@192.168.80.22 "nohup java -jar /WebGoat/webgoat-2023.5-SNAPSHOT.jar &"'
               }
            }
