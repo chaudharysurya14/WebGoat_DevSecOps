@@ -28,7 +28,7 @@ pipeline {
  stage ('Fetch Application server') {
 steps {
 sshagent(['application_server']) {
-      sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/CDAC\ _Intern_Project/target/webgoat-server-v8.2.0.jar root@192.168.80.22:~/WebGoat'
+      sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/CDAC_Intern_Project/target/webgoat-server-v8.2.0.jar root@192.168.80.22:~/WebGoat'
           }
         }
       }
