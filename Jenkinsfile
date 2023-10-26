@@ -34,13 +34,13 @@ sshagent(['application_server']) {
           }
         }
       }
-    stage ('Dynamic analysis') {
-            steps {
-           sshagent(['application_server']) {
-                sh 'ssh -o  StrictHostKeyChecking=no root@192.168.80.22 "sudo docker run --rm -v /root:/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t http://192.168.80.22:8080/WebGoat -x zap_report || true"'
-	   }
-        }
-     }
+    // stage ('Dynamic analysis') {
+    //         steps {
+    //        sshagent(['application_server']) {
+    //             sh 'ssh -o  StrictHostKeyChecking=no root@192.168.80.22 "sudo docker run --rm -v /root:/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t http://192.168.80.22:8080/WebGoat -x zap_report || true"'
+	   // }
+    //     }
+    //  }
   }
 }
 
