@@ -29,7 +29,7 @@ pipeline {
 steps {
 sshagent(['application_server']) {
       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/CDAC_Intern_Project/target/webgoat-server-v8.2.0.jar root@192.168.80.22:~/WebGoat'
-      sh 'ssh -o  StrictHostKeyChecking=no root@192.168.80.22 "nohup java -jar /WebGoat/webgoat-server-v8.2.0.jar &"'
+      sh 'ssh -o  StrictHostKeyChecking=no root@192.168.80.22 "nohup java -jar /root/WebGoat/webgoat-server-v8.2.0.jar &"'
           }
         }
       }
