@@ -30,7 +30,7 @@ steps {
 sshagent(['application_server']) {
       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/CDAC_Intern_Project/target/webgoat-server-v8.2.0.jar root@192.168.80.22:~/WebGoat'
       // sh 'ssh -o  StrictHostKeyChecking=no root@192.168.80.22 "lsof -i :8088 -t"'
-      sh 'ssh root@192.168.80.22 "fuser -k 8088/tcp"'
+      sh 'ssh -o  StrictHostKeyChecking=no root@192.168.80.22 "sudo fuser 8080/tcp"'
       sh 'ssh -o  StrictHostKeyChecking=no root@192.168.80.22 "nohup java -jar /root/WebGoat/webgoat-server-v8.2.0.jar --server.address=0.0.0.0 --server.port=8088 &"'
           }
         }
